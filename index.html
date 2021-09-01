@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
+
+    <title>Les petits plats</title>
+  </head>
+
+  <body>
+    <div id="bloc-page">
+      <header>
+        <div class="logo-box">
+          <img
+            src="images/logo/les-petits-plats.svg"
+            alt="logo Les petits plats"
+            class="logo"
+          />
+          <h1>les petits plats</h1>
+        </div>
+      </header>
+
+      <main>
+        <section id="search-area">
+          <div id="search-bar">
+            <!-- <form id="search" method="post" action="#"> -->
+            <input
+              class="search-text"
+              type="search"
+              name="search"
+              id="search-element"
+              placeholder="Rechercher un ingrédient, appareil, ustensile ou une recette"
+            />
+            <div>
+              <img
+                src="images/icon/search.svg"
+                alt="icone de recherche"
+                class="icon"
+              />
+            </div>
+          </div>
+
+          <div id="tag-area">
+            <div class="ingredient-tag">
+              <p class="tag">
+                coco<img
+                  src="images/icon/circlecroix.svg"
+                  alt="icone cercle avec croix"
+                  class="icon tag__icon"
+                />
+              </p>
+            </div>
+            <div class="appliance-tag">
+              <p class="tag">
+                mixer<img
+                  src="images/icon/circlecroix.svg"
+                  alt="icone cercle avec croix"
+                  class="icon tag__icon"
+                />
+              </p>
+            </div>
+            <div class="ustensil-tag">
+              <p class="tag">
+                couteau<img
+                  src="images/icon/circlecroix.svg"
+                  alt="icone cercle avec croix"
+                  class="icon tag__icon"
+                />
+              </p>
+            </div>
+          </div>
+
+          <div id="filter-area">
+            <div id="ingredients" class="filter">
+              <div class="filter filters-ingredients">
+                <!-- <div id="ingredient-list">
+                  <p>Recherche ingrédients</p>
+                  <input
+                    id="search-ingredient"
+                    class="search-text"
+                    type="search"
+                    name="search"
+                  />
+                </div> -->
+                <div
+                  class="btn-filter btn-ingredients"
+                  type="button"
+                  name="Ingredients"
+                >
+                  <h2 class="filter__text">
+                    ingredients
+                    <img
+                      src="images/icon/chevron-down.svg"
+                      alt="fleche vers le bas"
+                      class="icon chevron-down"
+                    />
+                  </h2>
+                  <div>
+                    <div class="input-search">
+                      <input
+                        class="filter__text search-element"
+                        type="search"
+                        name="search"
+                        id="search-ingredient"
+                        placeholder="Rechercher un ingrédient"
+                      />
+                      <img
+                        src="images/icon/chevron-up.svg"
+                        alt="fleche vers le bas"
+                        class="icon chevron-down"
+                      />
+                    </div>
+                    <ul class="text-search">
+                      <li>lait de coco</li>
+                      <li>jus de citron</li>
+                      <li>creme de cacao</li>
+                      <li>sucre</li>
+                      <li>glaçon</li>
+                      <li>thon rouge</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="appliance" class="filter">
+              <div
+                class="btn-filter btn-appliance"
+                type="button"
+                name="appliance"
+              >
+                <h2 class="filter__text">
+                  appareils
+                  <!-- <i class="fas fa-chevron-down"></i> -->
+                  <!-- <div class="appliance-chevron"> -->
+                  <img
+                    src="images/icon/chevron-down.svg"
+                    alt="fleche vers le bas"
+                    class="icon chevron-down"
+                  />
+                  <!-- </div> -->
+                </h2>
+              </div>
+            </div>
+
+            <div id="ustensils" class="filter ustensils">
+              <div
+                class="btn-filter btn-ustensils"
+                type="button"
+                name="appliance"
+              >
+                <h2 class="filter__text">
+                  ustensiles
+                  <img
+                    src="images/icon/chevron-down.svg"
+                    alt="fleche vers le bas"
+                    class="icon chevron-down"
+                  />
+                </h2>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!--RECETTES-->
+        <section id="recipes">
+          <div id="recipes-list">
+            <div id="1" class="recipe-block">
+              <div class="recipe-block__img"></div>
+              <div class="recipe">
+                <div class="recipe__titleTime">
+                  <h2 class="recipe__titleTime__title name">
+                    limonade de coco
+                  </h2>
+                  <h2 class="recipe__titleTime__time">
+                    <img
+                      src="images/icon/clock-circle.svg"
+                      alt="icone temps"
+                      class="icon recipe__titleTime__time--icon"
+                    />
+                    10 min
+                  </h2>
+                </div>
+                <div class="ingredients-description">
+                  <div class="Ingredients">
+                    <ul class="ingredients-list">
+                      <li class="ingredient">
+                        lait de coco:
+                        <span class="ingredient__quantity">400</span
+                        ><span class="unit">ml</span>
+                      </li>
+                      <li class="ingredient">
+                        jus de citron:
+                        <span class="ingredient__quantity">2</span>
+                      </li>
+                      <li class="ingredient">
+                        créme de coco:
+                        <span class="ingredient__quantity">2</span>
+                        <span class="ustensiles, unit">cuillères</span>
+                      </li>
+                      <li class="ingredient">
+                        sucre: <span class="ingredient__quantity">20</span
+                        ><span class="unit">g</span>
+                      </li>
+                      <li class="ingredient">
+                        glaçons: <span class="ingredient__quantity">2</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="description">
+                    <p class="description__text">
+                      mettre les glaçons à votre goût dans le
+                      <span class="appliance">blender</span>, ajouter le lait,
+                      la crème de coco, le jus de 2 citrons et le sucre.
+                      <span class="appliance">mixer</span> jusqu'à avoir la
+                      consistence désirée,
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="2" class="recipe-block">
+              <div class="recipe-block__img"></div>
+              <div class="recipe">
+                <div class="recipe__titleTime">
+                  <h2 class="recipe__titleTime__title name">
+                    poisson Cru à la tahitienne
+                  </h2>
+                  <h2 class="recipe__titleTime__time">
+                    <img
+                      src="images/icon/clock-circle.svg"
+                      alt="icone temps"
+                      class="icon recipe__titleTime__time--icon"
+                    />
+                    60 min
+                  </h2>
+                </div>
+                <div class="ingredients-description">
+                  <div class="Ingredients">
+                    <ul class="ingredients-list">
+                      <li class="ingredient">
+                        thon Rouge (ou blanc):
+                        <span class="ingredient__quantity">200</span
+                        ><span class="unit">g</span>
+                      </li>
+                      <li class="ingredient">
+                        concombre: <span class="ingredient__quantity">1</span>
+                      </li>
+                      <li class="ingredient">
+                        tomate: <span class="ingredient__quantity">2</span>
+                      </li>
+                      <li class="ingredient">
+                        tarotte: <span class="ingredient__quantity">1</span>
+                      </li>
+                      <li class="ingredient">
+                        litron Vert: <span class="ingredient__quantity">5</span>
+                      </li>
+                      <li class="ingredient">
+                        Lait de coco:
+                        <span class="ingredient__quantity">100</span>
+                        <span class="unit">ml</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="description">
+                    <p class="description__text">
+                      découper le thon en dés, mettre dans un plat et recouvrir
+                      de jus de citron vert (mieux vaut prendre un plat large et
+                      peu profond). Laisser reposer au réfrigérateur au moins 2
+                      heures. (Si possible faites-le le soir pour le lendemain.
+                      Après avoir laissé mariner le poisson, coupez le concombre
+                      en fines rondelles sans la peau et les tomates en prenant
+                      soin de retirer les pépins. Rayer la carotte. Ajouter les
+                      légumes au poissons avec le citron cette fois ci dans un
+                      Saladier. Ajouter le lait de coco. Pour ajouter un peu
+                      plus de saveur vous pouver ajouter 1 à 2 cuillères à soupe
+                      de Crème de coco
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="3" class="recipe-block">
+              <div class="recipe-block__img"></div>
+              <div class="recipe">
+                <div class="recipe__titleTime">
+                  <h2 class="recipe__titleTime__title name">
+                    poulet coco réunionnais
+                  </h2>
+                  <h2 class="recipe__titleTime__time">
+                    <img
+                      src="images/icon/clock-circle.svg"
+                      alt="icone temps"
+                      class="icon recipe__titleTime__time--icon"
+                    />
+                    80 min
+                  </h2>
+                </div>
+                <div class="ingredients-description">
+                  <div class="Ingredients">
+                    <ul class="ingredients-list">
+                      <li class="ingredient">
+                        Poulet: <span class="ingredient__quantity">1</span>
+                      </li>
+                      <li class="ingredient">
+                        Lait de coco:
+                        <span class="ingredient__quantity">140</span>
+                        <span class="unit">ml</span>
+                      </li>
+                      <li class="ingredient">
+                        Coulis de tomate:
+                        <span class="ingredient__quantity">25</span>
+                        <span class="unit">cl</span>
+                      </li>
+                      <li class="ingredient">
+                        Oignon: <span class="ingredient__quantity">1</span>
+                      </li>
+                      <li class="ingredient">
+                        Poivron rouge:
+                        <span class="ingredient__quantity">1</span>
+                      </li>
+                      <li class="ingredient">Huile d'olive</li>
+                    </ul>
+                  </div>
+
+                  <div class="description">
+                    <p class="description__text">
+                      Découper le poulet en morceaux, les faire dorer dans une
+                      cocotte avec de l'huile d'olive. Salez et poivrez. Une
+                      fois doré, laisser cuire en ajoutant de l'eau. Au bout de
+                      30 minutes, ajouter le coulis de tomate, le lait de coco
+                      ainsi que le poivron et l'oignon découpés en morceaux.
+                      Laisser cuisiner 30 minutes de plus. Servir avec du riz
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="4" class="recipe-block">
+              <div class="recipe-block__img"></div>
+              <div class="recipe">
+                <div class="recipe__titleTime">
+                  <h2 class="recipe__titleTime__title name">Salade de riz</h2>
+                  <h2 class="recipe__titleTime__time">
+                    <img
+                      src="images/icon/clock-circle.svg"
+                      alt="icone temps"
+                      class="icon recipe__titleTime__time--icon"
+                    />
+                    50 min
+                  </h2>
+                </div>
+                <div class="ingredients-description">
+                  <div class="Ingredients">
+                    <ul class="ingredients-list">
+                      <li class="ingredient">
+                        Riz blanc: <span class="ingredient__quantity">500</span
+                        ><span class="unit">g</span>
+                      </li>
+                      <li class="ingredient">
+                        Thon en miettes:
+                        <span class="ingredient__quantity">200</span
+                        ><span class="unit">g</span>
+                      </li>
+                      <li class="ingredient">
+                        Tomate: <span class="ingredient__quantity">2</span>
+                      </li>
+                      <li class="ingredient">
+                        Oeuf dur: <span class="ingredient__quantity">2</span>
+                      </li>
+                      <li class="ingredient">
+                        Maïs: <span class="ingredient__quantity">300</span
+                        ><span class="unit">g</span>
+                      </li>
+                      <li class="ingredient">
+                        Vinaigrette: <span class="ingredient__quantity">5</span
+                        ><span class="unit">cl</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="description">
+                    <p class="description__text">
+                      Faire cuire le riz. Une fois le riz cuit, le laisser
+                      refroidir. Couper les oeufs dur en quarts ou en lamelle au
+                      choix, coupez le tomates en dés, ajouter au riz les oeufs,
+                      les tomates, le poisson, le maïs et la vinaigrette.
+                      Ajouter au gout de chacun des corniches, olives etc..
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="5" class="recipe-block">
+              <div class="recipe-block__img"></div>
+              <div class="recipe">
+                <div class="recipe__titleTime">
+                  <h2 class="recipe__titleTime__title name">Tarte au thon</h2>
+                  <h2 class="recipe__titleTime__time">
+                    <img
+                      src="images/icon/clock-circle.svg"
+                      alt="icone temps"
+                      class="icon recipe__titleTime__time--icon"
+                    />
+                    45 min
+                  </h2>
+                </div>
+                <div class="ingredients-description">
+                  <div class="Ingredients">
+                    <ul class="ingredients-list">
+                      <li class="ingredient">
+                        Pâte feuilletée:
+                        <span class="ingredient__quantity">1</span>
+                      </li>
+                      <li class="ingredient">
+                        Thon en miettes:
+                        <span class="ingredient__quantity">130</span>
+                        <span class="unit">g</span>
+                      </li>
+                      <li class="ingredient">
+                        Tomate: <span class="ingredient__quantity">2</span>
+                      </li>
+
+                      <li class="ingredient">
+                        Crème fraiche:
+                        <span class="ingredient__quantity">2</span>
+                        <span class="unit">cuillères à soupe</span>
+                      </li>
+                      <li class="ingredient">
+                        gruyère râpé:
+                        <span class="ingredient__quantity">100</span>
+                        <span class="unit">g</span>
+                      </li>
+                      <li class="ingredient">
+                        Moutarde de Dijon:
+                        <span class="ingredient__quantity">1</span>
+                        <span class="unit">cuillères à soupe</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="description">
+                    <p class="description__text">
+                      Etaler la pâte feuilleté aux dimensions du moule, étaler
+                      la moutarde sur la pâte feuilleté, ajouter le thon.
+                      Découper les tomates en rondelles et les poser sur le
+                      poisson, ajouter un peu de crème fraiche sur toute la
+                      tarte et recouvrez de gruyère râpé. Cuire au four 30
+                      minutes
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="6" class="recipe-block">
+              <div class="recipe-block__img"></div>
+              <div class="recipe">
+                <div class="recipe__titleTime">
+                  <h2 class="recipe__titleTime__title name">
+                    Tarte aux pommes
+                  </h2>
+                  <h2 class="recipe__titleTime__time">
+                    <img
+                      src="images/icon/clock-circle.svg"
+                      alt="icone temps"
+                      class="icon recipe__titleTime__time--icon"
+                    />
+                    50 min
+                  </h2>
+                </div>
+                <div class="ingredients-description">
+                  <div class="Ingredients">
+                    <ul class="ingredients-list">
+                      <li class="ingredient">
+                        Pâte brisée: <span class="ingredient__quantity">1</span>
+                      </li>
+                      <li class="ingredient">
+                        Pomme: <span class="ingredient__quantity">3</span>
+                      </li>
+                      <li class="ingredient">
+                        Oeuf: <span class="ingredient__quantity">2</span>
+                      </li>
+
+                      <li class="ingredient">
+                        Sucre en poudre:
+                        <span class="ingredient__quantity">100</span>
+                        <span class="unit">g</span>
+                      </li>
+                      <li class="ingredient">
+                        Sucre vavillé:
+                        <span class="ingredient__quantity">1</span>
+                        <span class="unit">sachet</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="description">
+                    <p class="description__text">
+                      Commencez par mélanger les oeufs le sucre et le sucre
+                      vanillé dans un saladier, découper les pommes en tranches,
+                      ajouter la crème fraiche aux oeufs. Une fois que tout est
+                      pret, étalez la tarte dans le moule. N'oubliez pas de
+                      piquer le fond avec une fourchette avant depositionner les
+                      pommes sur la tarte. Finallement verser la préparation à
+                      base d'oeufs et de crême fraiche. Laisser cuire au four
+                      pendant 30 minutes
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="7" class="recipe-block">
+              <div class="recipe-block__img"></div>
+              <div class="recipe">
+                <div class="recipe__titleTime">
+                  <h2 class="recipe__titleTime__title name">
+                    Tartelettes au chocolat et aux fraises
+                  </h2>
+                  <h2 class="recipe__titleTime__time">
+                    <img
+                      src="images/icon/clock-circle.svg"
+                      alt="icone temps"
+                      class="icon recipe__titleTime__time--icon"
+                    />
+                    50 min
+                  </h2>
+                </div>
+                <div class="ingredients-description">
+                  <div class="Ingredients">
+                    <ul class="ingredients-list">
+                      <li class="ingredient">
+                        Pâte sablée: <span class="ingredient__quantity">1</span>
+                      </li>
+                      <li class="ingredient">
+                        Chocolat au lait:
+                        <span class="ingredient__quantity">300</span>
+                        <span class="unit">g</span>
+                      </li>
+
+                      <li class="ingredient">
+                        Crème liquide:
+                        <span class="ingredient__quantity">80</span>
+                        <span class="unit">cl</span>
+                      </li>
+                      <li class="ingredient">
+                        Beurre: <span class="ingredient__quantity">30</span>
+                        <span class="unit">g</span>
+                      </li>
+                      <li class="ingredient">
+                        Fraise: <span class="ingredient__quantity">6</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="description">
+                    <p class="description__text">
+                      Etaler la pate dans les moules à tartelette. Faire cuire
+                      la pate 30 minutes. Découper le chocolat en morceau et le
+                      faire chauffer, y ajouter la crême liquide, ajouter le
+                      beurre et remuer jusqu'à avoir une pâte homogène. Verser
+                      la pate sur les tartelettes. Couper les fraises en 2 et
+                      les positionner sur
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

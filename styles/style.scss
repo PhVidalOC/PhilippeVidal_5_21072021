@@ -115,10 +115,10 @@ h2 {
 }
 
 .filter {
-  max-width: 40%;
   // position: absolute to-upper-case($string: "");
     margin-top: 20px;
   display: flex;
+  flex-direction: column;
   justify-content:left
 
   //   // border-radius: 5px;
@@ -142,6 +142,8 @@ h2 {
 .btn-filter {
   // max-width: 1000px;
   // border-radius: 5px;
+  text-transform: capitalize;
+  font-size: 1.4em;
   padding-left: 15px;
   // margin-right: 35px;
 
@@ -158,23 +160,48 @@ h2 {
 //   position: absolute to-upper-case($string: "");
 // }
 
+.filter-ingredients {
+  position: relative;
+  border-radius: 5px;
+  background-color: #3282f7;
+  display: flex;
+}
+
+
+
+.chevron-down{
+  position:absolute;
+  top: 10px;
+  right: 15px;
+}
 .btn-appliance {
-  background-color: #68d9a4;
+  background-color: transparent;
   // position: absolute to-upper-case($string: "");
 }
-#ustensils {
+.filter-appliance {
+  position: relative;
+  border-radius: 5px;
+  background-color: #68d9a4;
+  display: flex;
+}
+
+.btn-ustensils {
+  background-color:transparent
+}
+.filter-ustensils {
+  position: relative;
   border-radius: 5px;
   background-color: #ed6454;
   display: flex;
 }
 
-.icon {
-  margin-left: 10px;
-}
+// .icon {
+//   margin-left: 10px;
+// }
 
-.chevron-down {
-  margin-right: 20px;
-}
+// .chevron-down {
+//   margin-right: 20px;
+// }
 
 .filter__text {
   // position: absolute;
@@ -196,9 +223,10 @@ h2 {
   list-style-type: none;
   // max-width: 800px;
   max-height: 400px;
-  column-width: 200px;
+  column-width: 300px;
+  column-count:auto;
   // display: flex;
-  // flex-direction: row;
+  flex-direction: row;
   // flex-wrap: wrap;
   // padding-left: 10px;
 
@@ -208,10 +236,11 @@ h2 {
   font-size: 1.4em;
   font-family: "Lato", sans-serif;
   text-align: left;
-  // float: left;
-  // padding: 18px;
-}
+  color: #fff;
+  margin-right: 15px;}
 
+
+//RECETTES
 #recipes-list {
   // width: 1240px;
   display: flex;

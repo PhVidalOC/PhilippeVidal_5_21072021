@@ -28,7 +28,7 @@
             <!-- <form id="search" method="post" action="#"> -->
             <input
               class="search-text"
-              type="search"
+              type="text"
               name="search"
               id="search-element"
               placeholder="Rechercher un ingrédient, appareil, ustensile ou une recette"
@@ -74,43 +74,29 @@
 
           <div id="filter-area">
             <div id="ingredients" class="filter filter-ingredients">
-                <!-- <div class="filter "> -->
-                <button
-                  class="btn-filter btn-ingredients"
-                  type="button"
-                  name="Ingredients"
-                  onclick="showingredientsfilter()">
-                  <h2 id="indredient-select" class="filter__text">
-                    ingredients
-                  </h2>
-                    <input
-                      class="filterinput__text search-element"
-                      type="search"
-                      name="search"
-                      id="search-ingredient"
-                      placeholder="Rechercher un ingrédient"
-                    />
-                    <div class= chevron-container>
-                      <img
-                      src="images/icon/chevron-down.svg"
-                      alt="fleche vers le bas"
-                      class="icon chevron-down"
-                    />
-                    </div>
-                 
-                    <!-- <img
-                      src="images/icon/chevron-up.svg"
-                      alt="fleche vers le bas"
-                      class="icon chevron-down"
-                    /> -->
-
-                    <div id="ingr-search-list">
-                      <ul id="ingr-search" class="text-search">
-
-                      </ul>
-                    </div>
-                </button>
-                </div>
+              <!-- <div class="filter "> -->
+              <button
+                class="btn-filter btn-ingredients"
+                type="button"
+                name="Ingredients"
+              >
+                ingredients
+              </button>
+              <input
+                class="filterinput__text search-element"
+                type="text"
+                name="search"
+                id="search-ingredient"
+                placeholder="Rechercher un ingrédient"
+              />
+              <img
+                src="images/icon/chevron-down.svg"
+                alt="fleche vers le bas"
+                class="icon chevron-down"
+              />
+              <div id="ingr-search-list">
+                <ul id="ingr-search" class="text-search"></ul>
+              </div>
             </div>
 
             <div id="appliance" class="filter filter-appliance">
@@ -118,61 +104,54 @@
                 class="btn-filter btn-appliance"
                 type="button"
                 name="appliance"
-                <!-- onclick="shwowappliancefilter()" -->
               >
-                <h2 id="appliance-select" class="filter__text">
-                  appareils
-                </h2>
-                  <input
-                    class="filterinput__text search-element"
-                    type="search"
-                    name="search2"
-                    id="search-appliance"
-                    placeholder="Rechercher un appareil"
-                  />
-                  <div class= chevron-container>
-                  <img
-                    src="images/icon/chevron-down.svg"
-                    alt="fleche vers le bas"
-                    class="icon chevron-down"
-                  />
-                </button>
-                <div id="applia-search-list">
-                <ul id="applia-search" class="text-search">
+                appareils
+              </button>
+              <input
+                class="filterinput__text search-element"
+                type="text"
+                name="search2"
+                id="search-appliance"
+                placeholder="Rechercher un appareil"
+              />
+              <img
+                src="images/icon/chevron-down.svg"
+                alt="fleche vers le bas"
+                class="icon chevron-down"
+              />
 
-                </ul>
-                </div>
+              <div id="applia-search-list">
+                <ul id="applia-search" class="text-search"></ul>
+              </div>
+            </div>
 
             <div id="ustensils" class="filter filter-ustensils">
               <button
                 class="btn-filter btn-ustensils"
                 type="button"
                 name="ustensils"
-                onclick="showustensilsfilter()"
               >
-                <h2 class="filter__text">
-                  ustensiles
-                  <img
-                    src="images/icon/chevron-down.svg"
-                    alt="fleche vers le bas"
-                    class="icon chevron-down"
-                  />
-                </h2>
-                <input
-                class="filterinput__text search-element"
-                type="search"
-                name="search2"
-                id="search-appliance"
-                placeholder="Rechercher un appareil"
-                />
+                ustensiles
               </button>
+              <img
+                src="images/icon/chevron-down.svg"
+                alt="fleche vers le bas"
+                class="icon chevron-down"
+              />
+              <input
+                class="filterinput__text search-element"
+                type="text"
+                name="search2"
+                id="search-ustensils"
+                placeholder="Rechercher un ustensile"
+              />
+
               <div id="ustensils-search-list">
-                  <ul id="ustensils-search" class="text-search">
-  
-                  </ul>
+                <ul id="ustensils-search" class="text-search"></ul>
               </div>
             </div>
           </div>
+          <!-- </div> -->
         </section>
 
         <!--RECETTES-->
@@ -578,7 +557,7 @@
                       beurre et remuer jusqu'à avoir une pâte homogène. Verser
                       la pate sur les tartelettes. Couper les fraises en 2 et
                       les positionner sur -->
-                    <!-- </p>
+            <!-- </p>
                   </div>
                 </div>
               </div>
@@ -591,6 +570,5 @@
     <script src="./scripts/utils.js"></script>
     <script src="./scripts/recipes.js"></script>
     <script src="./scripts/dynamic.js"></script>
-
   </body>
 </html>

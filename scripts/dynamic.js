@@ -154,12 +154,12 @@ function searchUstensils() {
 //   }
 // }
 
-function showustensilsfilter() {
-  if (document.getElementById("ustensils-search").style.display === "none"){
-    document.getElementById("ustensils-search").style.display === "block"
-    document.getElementById("ingr-search-list").style.display === "none"
-    document.getElementById("applia-search-list").style.display === "none"
-  } else {
-    document.getElementById("ustensils-search").style.display === "none"
-  }
-}
+// function showustensilsfilter() {
+//   if (document.getElementById("ustensils-search").style.display === "none"){
+//     document.getElementById("ustensils-search").style.display === "block"
+//     document.getElementById("ingr-search-list").style.display === "none"
+//     document.getElementById("applia-search-list").style.display === "none"
+//   } else {
+//     document.getElementById("ustensils-search").style.display === "none"
+//   }
+// }

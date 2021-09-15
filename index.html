@@ -43,7 +43,7 @@
           </div>
 
           <div id="tag-area">
-            <div class="ingredient-tag">
+            <div id="tag-ingredient" class="ingredient-tag">
               <p class="tag">
                 coco<img
                   src="images/icon/circlecroix.svg"
@@ -52,7 +52,7 @@
                 />
               </p>
             </div>
-            <div class="appliance-tag">
+            <div id="tag-appliance" class="appliance-tag">
               <p class="tag">
                 mixer<img
                   src="images/icon/circlecroix.svg"
@@ -61,7 +61,7 @@
                 />
               </p>
             </div>
-            <div class="ustensil-tag">
+            <div id="tag-ustensil" class="ustensil-tag">
               <p class="tag">
                 couteau<img
                   src="images/icon/circlecroix.svg"
@@ -73,83 +73,82 @@
           </div>
 
           <div id="filter-area">
-            <div id="ingredients" class="filter">
-              <div class="filter filters-ingredients">
-                <!-- <div id="ingredient-list">
-                  <p>Recherche ingrédients</p>
-                  <input
-                    id="search-ingredient"
-                    class="search-text"
-                    type="search"
-                    name="search"
-                  />
-                </div> -->
-                <div
+            <div id="ingredients" class="filter filter-ingredients">
+                <!-- <div class="filter "> -->
+                <button
                   class="btn-filter btn-ingredients"
                   type="button"
                   name="Ingredients"
-                >
-                  <h2 class="filter__text">
+                  onclick="showingredientsfilter()">
+                  <h2 id="indredient-select" class="filter__text">
                     ingredients
-                    <img
+                  </h2>
+                    <input
+                      class="filterinput__text search-element"
+                      type="search"
+                      name="search"
+                      id="search-ingredient"
+                      placeholder="Rechercher un ingrédient"
+                    />
+                    <div class= chevron-container>
+                      <img
                       src="images/icon/chevron-down.svg"
                       alt="fleche vers le bas"
                       class="icon chevron-down"
                     />
-                  </h2>
-                  <div>
-                    <div class="input-search">
-                      <input
-                        class="filter__text search-element"
-                        type="search"
-                        name="search"
-                        id="search-ingredient"
-                        placeholder="Rechercher un ingrédient"
-                      />
-                      <img
-                        src="images/icon/chevron-up.svg"
-                        alt="fleche vers le bas"
-                        class="icon chevron-down"
-                      />
                     </div>
-                    <ul class="text-search">
-                      <li>lait de coco</li>
-                      <li>jus de citron</li>
-                      <li>creme de cacao</li>
-                      <li>sucre</li>
-                      <li>glaçon</li>
-                      <li>thon rouge</li>
-                    </ul>
-                  </div>
+                 
+                    <!-- <img
+                      src="images/icon/chevron-up.svg"
+                      alt="fleche vers le bas"
+                      class="icon chevron-down"
+                    /> -->
+
+                    <div id="ingr-search-list">
+                      <ul id="ingr-search" class="text-search">
+
+                      </ul>
+                    </div>
+                </button>
                 </div>
-              </div>
             </div>
 
-            <div id="appliance" class="filter">
-              <div
+            <div id="appliance" class="filter filter-appliance">
+              <button
                 class="btn-filter btn-appliance"
                 type="button"
                 name="appliance"
+                <!-- onclick="shwowappliancefilter()" -->
               >
-                <h2 class="filter__text">
+                <h2 id="appliance-select" class="filter__text">
                   appareils
-                  <!-- <i class="fas fa-chevron-down"></i> -->
-                  <!-- <div class="appliance-chevron"> -->
+                </h2>
+                  <input
+                    class="filterinput__text search-element"
+                    type="search"
+                    name="search2"
+                    id="search-appliance"
+                    placeholder="Rechercher un appareil"
+                  />
+                  <div class= chevron-container>
                   <img
                     src="images/icon/chevron-down.svg"
                     alt="fleche vers le bas"
                     class="icon chevron-down"
                   />
-                  <!-- </div> -->
-                </h2>
-              </div>
-            </div>
+                </button>
+                <div id="applia-search-list">
+                <ul id="applia-search" class="text-search">
 
-            <div id="ustensils" class="filter ustensils">
-              <div
+                </ul>
+                </div>
+
+            <div id="ustensils" class="filter filter-ustensils">
+              <button
                 class="btn-filter btn-ustensils"
                 type="button"
-                name="appliance"
+                name="ustensils"
+                onclick="showustensilsfilter()"
               >
                 <h2 class="filter__text">
                   ustensiles
@@ -159,6 +158,18 @@
                     class="icon chevron-down"
                   />
                 </h2>
+                <input
+                class="filterinput__text search-element"
+                type="search"
+                name="search2"
+                id="search-appliance"
+                placeholder="Rechercher un appareil"
+                />
+              </button>
+              <div id="ustensils-search-list">
+                  <ul id="ustensils-search" class="text-search">
+  
+                  </ul>
               </div>
             </div>
           </div>
@@ -167,7 +178,7 @@
         <!--RECETTES-->
         <section id="recipes">
           <div id="recipes-list">
-            <div id="1" class="recipe-block">
+            <!-- <div id="1" class="recipe-block">
               <div class="recipe-block__img"></div>
               <div class="recipe">
                 <div class="recipe__titleTime">
@@ -566,15 +577,20 @@
                       faire chauffer, y ajouter la crême liquide, ajouter le
                       beurre et remuer jusqu'à avoir une pâte homogène. Verser
                       la pate sur les tartelettes. Couper les fraises en 2 et
-                      les positionner sur
-                    </p>
+                      les positionner sur -->
+                    <!-- </p>
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </section>
       </main>
     </div>
+
+    <script src="./scripts/utils.js"></script>
+    <script src="./scripts/recipes.js"></script>
+    <script src="./scripts/dynamic.js"></script>
+
   </body>
 </html>

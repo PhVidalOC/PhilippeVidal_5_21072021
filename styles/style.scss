@@ -110,14 +110,16 @@ h2 {
 #filter-area {
   display: flex;
   flex-wrap: wrap;
-  // justify-content: start;
+  justify-content: space-between;
+  // align-content: flex-start;
 }
 
 .filter {
-  //   margin-top: 20px;
+  max-width: 40%;
+  // position: absolute to-upper-case($string: "");
+    margin-top: 20px;
   display: flex;
-  //   justify-content: flex-end;
-  align-items: center;
+  justify-content:left
 
   //   // border-radius: 5px;
   //   // color: #FFFFFF;
@@ -125,49 +127,45 @@ h2 {
   //   // background-color: #3282F7;
   &__text {
     // font-weight: 700;
+    // justify-items: left;
     font-family: "Lato", sans-serif;
     border: 0;
   }
 }
 
-.input-search{
+#filter-area {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
 .btn-filter {
-  max-width: 490px;
-  // height: 69px;
-  border-radius: 5px;
+  // max-width: 1000px;
+  // border-radius: 5px;
   padding-left: 15px;
-  margin-right: 35px;
-  // font-size: 18px;
-  // font-style: normal;
-  // font-family: "Lato", sans-serif;
-  // font-weight: 700;
+  // margin-right: 35px;
+
   color: #ffffff;
   border: none;
   cursor: pointer;
 }
 .btn-ingredients {
   background: #3282f7;
+  // position: absolute to-upper-case($string: "");
 }
-// .btn-filter img {
-//   padding-left: 10px;
+
+// .input-search-ingr{
+//   position: absolute to-upper-case($string: "");
 // }
 
-// #ingredients-search {
-//   display: flex;
-// }
-
-// .ingredients {
-//   margin-right: 20px;
-// }
 .btn-appliance {
   background-color: #68d9a4;
+  // position: absolute to-upper-case($string: "");
 }
-.btn-ustensils {
+#ustensils {
+  border-radius: 5px;
   background-color: #ed6454;
+  display: flex;
 }
 
 .icon {
@@ -178,7 +176,7 @@ h2 {
   margin-right: 20px;
 }
 
-.filter__text{
+.filter__text {
   // position: absolute;
   font-size: 1.4em;
   font-family: "Lato", sans-serif;
@@ -186,19 +184,32 @@ h2 {
   background-color: transparent;
 }
 
-.search-element{
-width: 300px;
+// .search-element{
+// // width: 800px;
+// }
+
+#ingr-search-list {
+  display: flex;
+  flex-wrap: wrap;
 }
 .text-search {
   list-style-type: none;
-  display: inline;
-  flex-wrap: wrap;
+  // max-width: 800px;
+  max-height: 400px;
+  column-width: 200px;
+  // display: flex;
+  // flex-direction: row;
+  // flex-wrap: wrap;
+  // padding-left: 10px;
+
+  // flex-wrap: wrap;
 }
 .text-search li {
   font-size: 1.4em;
   font-family: "Lato", sans-serif;
-  float: left;
-  padding-right: 20px;
+  text-align: left;
+  // float: left;
+  // padding: 18px;
 }
 
 #recipes-list {
@@ -265,7 +276,6 @@ width: 300px;
   height: 105px;
   padding: 0;
   list-style-type: none;
-
 }
 
 .ingredient {

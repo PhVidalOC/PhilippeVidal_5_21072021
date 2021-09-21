@@ -1,3 +1,6 @@
+/**
+ * GENERATION DES CARTES DE RECETTES
+ */
 const container = document.getElementById("recipes-list");
 for (let i = 0; i < recipes.length; i++) {
   const card = `<div id="${recipes[i].id}" class="recipe-block">
@@ -38,6 +41,11 @@ for (let i = 0; i < recipes.length; i++) {
   container.innerHTML += card;
 }
 
+/**
+ * Fonction pour insertions d'éléments des cartes recettes
+ * @param {*} ingredientsList 
+ * @returns 
+ */
 function getIngredients(ingredientsList) {
   let ingredientLi = "";
   ingredientsList.forEach((element) => {
@@ -57,12 +65,20 @@ function getIngredients(ingredientsList) {
   return ingredientLi;
 }
 
-const containerSearch = document.getElementById("ingr-search");
+/**
+ * LISTE INGREDIENTS
+ */
+const containerSearch = document.getElementById("ingr-search-list");
 const ingredientsArray = searchIngredients(recipes);
 ingredientsArray.forEach((ingredient) => {
   containerSearch.innerHTML += `<li>${ingredient}</li>`;
 });
 
+/**
+ * Fonction pour constitution de liste d'ingrédients
+ * @param {*} ingredientsSearchList 
+ * @returns 
+ */
 function searchIngredients(ingredientsSearchList) {
   let tabIngr = [];
   ingredientsSearchList.forEach((recipe) => {
@@ -72,21 +88,28 @@ function searchIngredients(ingredientsSearchList) {
           Utils.normScripture(i) === Utils.normScripture(ingredient.ingredient)
       );
       if (index === -1) {
-        tabIngr.push(ingredient.ingredient);
+        tabIngr.push(ingredient.ingredient.toLowerCase());
       }
     });
   });
   // console.log(tabIngr)
-  tabIngr.sort();
+  tabIngr.sort(Intl.Collator().compare);
   return tabIngr;
 }
 
-const containerSearchB = document.getElementById("applia-search");
+/**
+ * LISTE APPAREILS
+ */
+const containerSearchB = document.getElementById("applia-search-list");
 const appliancesArray = searchAppliances(recipes);
 appliancesArray.forEach((appliance) => {
   containerSearchB.innerHTML += `<li>${appliance}</li>`;
 });
 
+/**
+ * fonction pour constitution liste d'appareils
+ * @returns 
+ */
 function searchAppliances() {
   let tabApplia = [];
   recipes.forEach((recette) => {
@@ -98,20 +121,24 @@ function searchAppliances() {
       tabApplia.push(recette.appliance);
     }
   });
-  // console.log(tabApplia);
-  tabApplia.sort();
+  tabApplia.sort(Intl.Collator().compare);
   return tabApplia;
 }
 
-const containerSearchC = document.getElementById("ustensils-search");
+
+/**
+ * LISTE USTENSILES
+ */
+const containerSearchC = document.getElementById("ust-search-list");
 const ustensilsArray = searchUstensils(recipes);
 ustensilsArray.forEach((ustensils) => {
   containerSearchC.innerHTML += `<li>${ustensils}</li>`;
 });
 
-
-
-
+/**
+ * fonction pour constitution de liste d'ustensiles
+ * @returns 
+ */
 function searchUstensils() {
   let tabUstensils = [];
   recipes.forEach((recipe) => {
@@ -126,40 +153,91 @@ function searchUstensils() {
     });
   });
   // console.log(tabIngr)
-  tabUstensils.sort();
+  tabUstensils.sort(Intl.Collator().compare);
   return tabUstensils;
 }
 
 
-
-// function showingredientsfilter() {
-//   if (document.getElementById("ingr-search-list").style.display === "none"){
-//     document.getElementById("ingr-search-list").style.display === "block"
-//     document.getElementById("applia-search-list").style.display === "none"
-//     document.getElementById("ustensils-search-list").style.display === "none"
-//   } else {
-//     document.getElementById("ingr-search-list").style.display === "none"
-//   }
-// }
+// document.getElementById("ingr-search-list").style.display = "none"
+// document.getElementById("ingr-chevron-up").style.display = "none"
+// document.getElementById("applia-chevron-up").style.display = "none"
+// document.getElementById("ust-chevron-up").style.display = "none"
+// document.getElementById("applia-search-list").style.display = "none"
+// document.getElementById("ust-search-list").style.display = "none"
 
 
 
-// function showappliancefilter() {
-//   if (document.getElementById("applia-search-list").style.display === "none"){
-//     document.getElementById("applia-search-list").style.display === "block"
-//     document.getElementById("ingr-search-list").style.display === "none"
-//     document.getElementById("ustensils-search-list").style.display === "none"
-//   } else {
-//     document.getElementById("applia-search-list").style.display === "none"
-//   }
-// }
+/**
+ * fonction pour clic de la liste d'ingrédients
+ */
+function showingredientsfilter() {
+  if (document.getElementById("ingr-search-list").style.display === "none"){
+    document.getElementById("ingr-search-list").style.display = "block"
+    document.getElementById("ingr-chevron-up").style.display = "block"
+    document.getElementById("ingr-chevron-down").style.display = "none"
 
-// function showustensilsfilter() {
-//   if (document.getElementById("ustensils-search").style.display === "none"){
-//     document.getElementById("ustensils-search").style.display === "block"
-//     document.getElementById("ingr-search-list").style.display === "none"
-//     document.getElementById("applia-search-list").style.display === "none"
-//   } else {
-//     document.getElementById("ustensils-search").style.display === "none"
+    document.getElementById("applia-search-list").style.display = "none"
+    document.getElementById("ust-search-list").style.display = "none"
+  } else {
+    document.getElementById("ingr-search-list").style.display = "none"
+    document.getElementById("ingr-chevron-down").style.display = "block"
+    document.getElementById("ingr-chevron-up").style.display = "none"
+
+    // document.getElementById("title-ingredient").style.display = "block"
+  }
+}
+
+
+/**
+ * fonction pour clic de la liste d'appareils
+ */
+function showappliancefilter() {
+  if (document.getElementById("applia-search-list").style.display === "none"){
+    document.getElementById("applia-search-list").style.display = "block"
+    document.getElementById("applia-chevron-up").style.display = "block"
+    document.getElementById("applia-chevron-down").style.display = "none"
+    
+    document.getElementById("ingr-search-list").style.display = "none"
+    document.getElementById("ust-search-list").style.display = "none"
+
+    
+  } else {
+    document.getElementById("applia-search-list").style.display = "none"
+    document.getElementById("applia-chevron-down").style.display = "block"
+    document.getElementById("applia-chevron-up").style.display = "none"
+  }
+}
+
+/**
+ * fonction pour clic de la liste d'ustensiles
+ */
+function showustensilfilter() {
+  if (document.getElementById("ust-search-list").style.display === "none"){
+    document.getElementById("ust-search-list").style.display = "block"
+    document.getElementById("ust-chevron-up").style.display = "block"
+    document.getElementById("ust-chevron-down").style.display = "none"
+    document.getElementById("ingr-search-list").style.display = "none"
+    document.getElementById("applia-search-list").style.display = "none"
+  } else {
+    document.getElementById("ust-search-list").style.display = "none"
+    document.getElementById("ust-chevron-down").style.display = "block"
+    document.getElementById("ust-chevron-up").style.display = "none"
+  }
+}
+
+// function unitLength(unitLng){
+//   switch (unitLng) {
+//       case "grammes":
+//           return "g"
+//       case "cuillères à soupe":
+//           return "CàS"
+//       case "cuillère à soupe":
+//           return "CàS"
+//       case "litres":
+//           return "l"
+//       case "litre":
+//           return "l"
+//       default:
+//           return unitLng
 //   }
 // }

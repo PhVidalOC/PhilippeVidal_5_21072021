@@ -74,32 +74,57 @@
 
           <div id="filter-area">
             <div id="ingredients" class="filter filter-ingredients">
-              <!-- <div class="filter "> -->
-              <button
-                class="btn-filter btn-ingredients"
-                type="button"
-                name="Ingredients"
-              >
-                ingredients
-              </button>
+              <!-- <div class="input-box"> -->
               <input
-                class="filterinput__text search-element"
                 type="text"
-                name="search"
-                id="search-ingredient"
-                placeholder="Rechercher un ingrédient"
+                placeholder="Ingredient"
+                id="title-ingredient"
+                class="btn-filter btn-ingredients"
+                onclick="showingredientsfilter()"
               />
               <img
                 src="images/icon/chevron-down.svg"
                 alt="fleche vers le bas"
-                class="icon chevron-down"
+                class="icon chevron"
+                id="ingr-chevron-down"
               />
-              <div id="ingr-search-list">
-                <ul id="ingr-search" class="text-search"></ul>
-              </div>
+              <img
+                src="images/icon/chevron-up.svg"
+                alt="fleche vers le haut"
+                class="icon chevron"
+                id="ingr-chevron-up"
+              />
+
+              <ul id="ingr-search-list" class="ingr-list text-search"></ul>
             </div>
 
             <div id="appliance" class="filter filter-appliance">
+              <input
+                type="text"
+                placeholder="Appareils"
+                id="title-Appareils"
+                class="btn-filter btn-appliance"
+                name="appliance"
+                onclick="showappliancefilter()"
+              />
+              <img
+                src="images/icon/chevron-down.svg"
+                alt="fleche vers le bas"
+                class="icon chevron"
+                id="applia-chevron-down"
+              />
+              <img
+                src="images/icon/chevron-up.svg"
+                alt="fleche vers le haut"
+                class="icon chevron"
+                id="applia-chevron-up"
+              />
+              <!-- <div id="applia-search-box" class ="search-box"> -->
+              <ul id="applia-search-list" class="applia-list text-search"></ul>
+              <!-- </div> -->
+            </div>
+
+            <!-- <div id="appliance" class="filter filter-appliance">
               <button
                 class="btn-filter btn-appliance"
                 type="button"
@@ -123,9 +148,32 @@
               <div id="applia-search-list">
                 <ul id="applia-search" class="text-search"></ul>
               </div>
-            </div>
+            </div> -->
 
             <div id="ustensils" class="filter filter-ustensils">
+              <input
+                type="text"
+                placeholder="ustensils"
+                id="title-ustensils"
+                class="btn-filter btn-ustensils"
+                onclick="showustensilfilter()"
+              />
+              <img
+                src="images/icon/chevron-down.svg"
+                alt="fleche vers le bas"
+                class="icon chevron"
+                id="ust-chevron-down"
+              />
+              <img
+                src="images/icon/chevron-up.svg"
+                alt="fleche vers le haut"
+                class="icon chevron"
+                id="ust-chevron-up"
+              />
+              <ul id="ust-search-list" class="ust-list text-search"></ul>
+            </div>
+
+            <!-- <div id="ustensils" class="filter filter-ustensils">
               <button
                 class="btn-filter btn-ustensils"
                 type="button"
@@ -147,9 +195,9 @@
               />
 
               <div id="ustensils-search-list">
-                <ul id="ustensils-search" class="text-search"></ul>
+                <ul id="ustensils-search" class="ust-search text-search"></ul>
               </div>
-            </div>
+            </div> -->
           </div>
           <!-- </div> -->
         </section>

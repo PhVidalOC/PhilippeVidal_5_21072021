@@ -20,6 +20,8 @@ h1 {
 }
 h2 {
   font-size: 1.4em;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
   text-transform: capitalize;
 }
 
@@ -102,143 +104,114 @@ h2 {
   color: #ffffff;
 
   // &__icon {
-  //   // width: 20px;
-  //   // height: 20px;
+  //   width: 20px;
+  //   height: 20px;
   // }
 }
 
 #filter-area {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  // flex-wrap: wrap;
+  justify-content: flex-start;
   // align-content: flex-start;
 }
 
 .filter {
-  // position: absolute to-upper-case($string: "");
-    margin-top: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-right: 20px;
   display: flex;
   flex-direction: column;
-  justify-content:left
+  justify-content: flex-start;
 
-  //   // border-radius: 5px;
-  //   // color: #FFFFFF;
-  // padding-right: 18px;
-  //   // background-color: #3282F7;
   &__text {
-    // font-weight: 700;
+    font-weight: 700;
     // justify-items: left;
     font-family: "Lato", sans-serif;
     border: 0;
   }
 }
 
-#filter-area {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.btn-filter {
-  // max-width: 1000px;
-  // border-radius: 5px;
-  text-transform: capitalize;
-  font-size: 1.4em;
-  padding-left: 15px;
-  // margin-right: 35px;
-
-  color: #ffffff;
-  border: none;
-  cursor: pointer;
-}
-.btn-ingredients {
-  background: #3282f7;
-  // position: absolute to-upper-case($string: "");
-}
-
-// .input-search-ingr{
-//   position: absolute to-upper-case($string: "");
-// }
-
 .filter-ingredients {
   position: relative;
-  border-radius: 5px;
+  // border-radius: 5px;
   background-color: #3282f7;
   display: flex;
+  flex-direction: column;
+  cursor: pointer;
 }
 
-
-
-.chevron-down{
-  position:absolute;
-  top: 10px;
-  right: 15px;
-}
-.btn-appliance {
-  background-color: transparent;
-  // position: absolute to-upper-case($string: "");
-}
-.filter-appliance {
-  position: relative;
-  border-radius: 5px;
-  background-color: #68d9a4;
-  display: flex;
-}
-
+.btn-ingredients,
+.btn-appliance,
 .btn-ustensils {
-  background-color:transparent
-}
-.filter-ustensils {
-  position: relative;
-  border-radius: 5px;
-  background-color: #ed6454;
-  display: flex;
-}
-
-// .icon {
-//   margin-left: 10px;
-// }
-
-// .chevron-down {
-//   margin-right: 20px;
-// }
-
-.filter__text {
-  // position: absolute;
-  font-size: 1.4em;
+  min-width: 170;
+  height: 70px;
+  padding: 15px;
+  background-color: transparent;
+  outline: transparent;
+  border: transparent;
+  font-size: 1.3em;
   font-family: "Lato", sans-serif;
   color: #fff;
-  background-color: transparent;
+  cursor: pointer;
 }
 
-// .search-element{
-// // width: 800px;
-// }
-
-#ingr-search-list {
-  display: flex;
-  flex-wrap: wrap;
+.search-text {
+  margin-left: 15px;
+  font-size: 1.3em;
+  font-family: "Lato", sans-serif;
+  color: #fff;
 }
+
+.chevron {
+  position: absolute;
+  top: 45px;
+  right: 20px;
+}
+
+.icon {
+  width: 15px;
+}
+
+#ingr-chevron-up, #applia-chevron-up, #ust-chevron-up{
+  display: none;
+}
+
 .text-search {
-  list-style-type: none;
-  // max-width: 800px;
-  max-height: 400px;
-  column-width: 300px;
-  column-count:auto;
-  // display: flex;
-  flex-direction: row;
-  // flex-wrap: wrap;
-  // padding-left: 10px;
-
-  // flex-wrap: wrap;
+  display: flex;
+  flex-flow: column wrap;
+  // width: 1000px;
+  // max-height: 900px;
+  // margin-top: 10px;
+  padding-left: 0;
+  padding-top: 20px;
 }
+
+.ingr-list, .applia-list, .ust-list{
+  display: none;
+}
+
 .text-search li {
+  list-style: none;
   font-size: 1.4em;
   font-family: "Lato", sans-serif;
   text-align: left;
   color: #fff;
-  margin-right: 15px;}
+  padding-right: 15px;
+  padding-left: 15px;
+  height: 22px;
+  // max-width: 200px;
+}
 
+.filter-appliance {
+  position: relative;
+  background-color: #68d9a4;
+}
+
+.filter-ustensils {
+  position: relative;
+  background-color: #ed6454;
+}
 
 //RECETTES
 #recipes-list {

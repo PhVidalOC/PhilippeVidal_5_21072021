@@ -29,15 +29,15 @@
             <input
               class="search-text"
               type="text"
-              name="search"
               id="search-element"
+              maxlength="50"
               placeholder="Rechercher un ingrédient, appareil, ustensile ou une recette"
             />
             <div>
               <img
                 src="images/icon/search.svg"
                 alt="icone de recherche"
-                class="icon"
+                class="icon-search"
               />
             </div>
           </div>
@@ -48,7 +48,7 @@
                 coco<img
                   src="images/icon/circlecroix.svg"
                   alt="icone cercle avec croix"
-                  class="icon tag__icon"
+                  class="tag__icon"
                 />
               </p>
             </div>
@@ -57,7 +57,7 @@
                 mixer<img
                   src="images/icon/circlecroix.svg"
                   alt="icone cercle avec croix"
-                  class="icon tag__icon"
+                  class="tag__icon"
                 />
               </p>
             </div>
@@ -66,7 +66,7 @@
                 couteau<img
                   src="images/icon/circlecroix.svg"
                   alt="icone cercle avec croix"
-                  class="icon tag__icon"
+                  class="tag__icon"
                 />
               </p>
             </div>
@@ -74,51 +74,64 @@
 
           <div id="filter-area">
             <div id="ingredients" class="filter filter-ingredients">
-              <!-- <div class="input-box"> -->
-              <input
-                type="text"
-                placeholder="Ingredient"
-                id="title-ingredient"
-                class="btn-filter btn-ingredients"
+              <div
+                id="click-ingr"
+                class="input-box ingr-box"
                 onclick="showingredientsfilter()"
-              />
-              <img
-                src="images/icon/chevron-down.svg"
-                alt="fleche vers le bas"
-                class="icon chevron"
-                id="ingr-chevron-down"
-              />
-              <img
-                src="images/icon/chevron-up.svg"
-                alt="fleche vers le haut"
-                class="icon chevron"
-                id="ingr-chevron-up"
-              />
+              >
+                <input
+                  type="text"
+                  placeholder="Ingrédients"
+                  id="title-ingredient"
+                  class="btn-filter btn-ingredients"
+                />
+                <div class="chevron-box">
+                  <img
+                    src="images/icon/chevron-down.svg"
+                    alt="fleche vers le bas"
+                    class="icon chevron"
+                    id="ingr-chevron-down"
+                  />
+                  <img
+                    src="images/icon/chevron-up.svg"
+                    alt="fleche vers le haut"
+                    class="icon chevron"
+                    id="ingr-chevron-up"
+                  />
+                </div>
+              </div>
 
               <ul id="ingr-search-list" class="ingr-list text-search"></ul>
             </div>
 
             <div id="appliance" class="filter filter-appliance">
-              <input
-                type="text"
-                placeholder="Appareils"
-                id="title-Appareils"
-                class="btn-filter btn-appliance"
-                name="appliance"
+              <div
+                id="click-applia"
+                class="input-box applia-box"
                 onclick="showappliancefilter()"
-              />
-              <img
-                src="images/icon/chevron-down.svg"
-                alt="fleche vers le bas"
-                class="icon chevron"
-                id="applia-chevron-down"
-              />
-              <img
-                src="images/icon/chevron-up.svg"
-                alt="fleche vers le haut"
-                class="icon chevron"
-                id="applia-chevron-up"
-              />
+              >
+                <input
+                  type="text"
+                  placeholder="Appareil"
+                  id="title-Appareils"
+                  class="btn-filter btn-appliance"
+                  name="appliance"
+                />
+                <div class="chevron-box">
+                <img
+                  src="images/icon/chevron-down.svg"
+                  alt="fleche vers le bas"
+                  class="icon chevron"
+                  id="applia-chevron-down"
+                />
+                <img
+                  src="images/icon/chevron-up.svg"
+                  alt="fleche vers le haut"
+                  class="icon chevron"
+                  id="applia-chevron-up"
+                />
+                </div>
+              </div>
               <!-- <div id="applia-search-box" class ="search-box"> -->
               <ul id="applia-search-list" class="applia-list text-search"></ul>
               <!-- </div> -->
@@ -151,25 +164,29 @@
             </div> -->
 
             <div id="ustensils" class="filter filter-ustensils">
-              <input
-                type="text"
-                placeholder="ustensils"
-                id="title-ustensils"
-                class="btn-filter btn-ustensils"
-                onclick="showustensilfilter()"
-              />
-              <img
-                src="images/icon/chevron-down.svg"
-                alt="fleche vers le bas"
-                class="icon chevron"
-                id="ust-chevron-down"
-              />
-              <img
-                src="images/icon/chevron-up.svg"
-                alt="fleche vers le haut"
-                class="icon chevron"
-                id="ust-chevron-up"
-              />
+              <div id="click-ust" class="input-box ust-box" onclick="showustensilfilter()">
+                <input
+                  type="text"
+                  placeholder="Ustensiles"
+                  id="title-ustensils"
+                  class="btn-filter btn-ustensils"
+                  
+                />
+                <div class="chevron-box">
+                <img
+                  src="images/icon/chevron-down.svg"
+                  alt="fleche vers le bas"
+                  class="icon chevron"
+                  id="ust-chevron-down"
+                />
+                <img
+                  src="images/icon/chevron-up.svg"
+                  alt="fleche vers le haut"
+                  class="icon chevron"
+                  id="ust-chevron-up"
+                />
+              </div>
+              </div>
               <ul id="ust-search-list" class="ust-list text-search"></ul>
             </div>
 
@@ -204,7 +221,7 @@
 
         <!--RECETTES-->
         <section id="recipes">
-          <div id="recipes-list">
+          <div id="recipes-list" class="recipes-list">
             <!-- <div id="1" class="recipe-block">
               <div class="recipe-block__img"></div>
               <div class="recipe">

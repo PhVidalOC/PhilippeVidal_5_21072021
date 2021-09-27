@@ -50,13 +50,20 @@ h2 {
 
 .search-text {
   width: 500px;
-  padding-right: 15px;
-  font-size: 18px;
+  font-size: 1.2em;
   font-style: normal;
   font-family: "Lato", sans-serif;
   font-weight: 400;
+  color: #000000;
   border: 0;
-  background: none;
+  background-color: transparent;
+  outline: transparent;
+  border: transparent;
+}
+
+.icon-search {
+  width: 32px;
+  height: 32px;
 }
 
 #tag-area {
@@ -88,8 +95,6 @@ h2 {
 
 .tag {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
   margin: 0;
   font-size: 14px;
   font-style: normal;
@@ -97,79 +102,96 @@ h2 {
   font-weight: 400;
   color: #ffffff;
 }
+.tag__icon {
+  width: 20px;
+  height: 20px;
+  padding-left: 10px;
+}
 
 #filter-area {
   display: flex;
+  width: 85%;
+  position: absolute;
+  align-items: flex-start;
+  z-index: 200;
+  flex-wrap: wrap;
   justify-content: flex-start;
 }
 
 .filter {
   border-radius: 5px;
-  margin-top: 20px;
+  padding-right: 10px;
   margin-right: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-.filter__text {
-  font-weight: 700;
-  font-family: "Lato", sans-serif;
-  border: 0;
 }
 
 .filter-ingredients {
-  position: relative;
   background-color: #3282f7;
+  cursor: pointer;
+}
+
+.input-box {
   display: flex;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-.btn-ingredients,
-.btn-appliance,
-.btn-ustensils {
-  min-width: 170;
+  justify-content: space-between;
+  width: 100%;
   height: 70px;
-  padding: 15px;
+  padding-left: 10px;
+  cursor: pointer;
+}
+.input-box ::-moz-placeholder {
+  color: #fff;
+  opacity: 1;
+}
+.input-box :-ms-input-placeholder {
+  color: #fff;
+  opacity: 1;
+}
+.input-box ::placeholder {
+  color: #fff;
+  opacity: 1;
+}
+
+.btn-filter {
+  margin: 0;
+  max-width: 20em;
   background-color: transparent;
-  outline: transparent;
-  border: transparent;
+  outline: unset;
+  border: unset;
   font-size: 1.3em;
   font-family: "Lato", sans-serif;
-  color: #fff;
   cursor: pointer;
 }
 
-.search-text {
-  margin-left: 15px;
-  font-size: 1.3em;
-  font-family: "Lato", sans-serif;
-  color: #fff;
+.chevron-box {
+  position: relative;
+  margin-right: 30px;
 }
 
 .chevron {
   position: absolute;
-  top: 45px;
-  right: 20px;
+  top: 40%;
 }
 
 .icon {
   width: 15px;
 }
 
-#ingr-chevron-up, #applia-chevron-up, #ust-chevron-up {
+#ingr-chevron-up,
+#applia-chevron-up,
+#ust-chevron-up {
   display: none;
 }
 
 .text-search {
   display: flex;
-  flex-flow: column wrap;
   padding-left: 0;
-  padding-top: 20px;
+  margin: 0;
+  grid-template-columns: auto auto auto;
+  display: grid;
 }
 
-.ingr-list, .applia-list, .ust-list {
-  display: none;
+.ingr-list {
+  padding-left: 0;
+  background-color: #3282f7;
 }
 
 .text-search li {
@@ -178,18 +200,29 @@ h2 {
   font-family: "Lato", sans-serif;
   text-align: left;
   color: #fff;
-  padding-right: 15px;
-  padding-left: 15px;
-  height: 22px;
+  padding: 10px;
+}
+.text-search li :hover {
+  background-color: yellow;
+}
+
+.applia-box {
+  height: 70px;
 }
 
 .filter-appliance {
-  position: relative;
   background-color: #68d9a4;
 }
 
+.ust-box {
+  height: 70px;
+}
+
+.ust-list {
+  max-width: 670px;
+}
+
 .filter-ustensils {
-  position: relative;
   background-color: #ed6454;
 }
 
@@ -198,6 +231,7 @@ h2 {
   flex-wrap: wrap;
   list-style-type: none;
   padding: 0;
+  margin-top: 50px;
 }
 
 .recipe-block {

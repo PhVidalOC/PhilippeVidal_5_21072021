@@ -158,13 +158,12 @@ function searchUstensils() {
 }
 
 
-// document.getElementById("ingr-search-list").style.display = "none"
-// document.getElementById("ingr-chevron-up").style.display = "none"
-// document.getElementById("applia-chevron-up").style.display = "none"
-// document.getElementById("ust-chevron-up").style.display = "none"
-// document.getElementById("applia-search-list").style.display = "none"
-// document.getElementById("ust-search-list").style.display = "none"
-
+document.getElementById("ingr-search-list").style.display = "none"
+document.getElementById("ingr-chevron-up").style.display = "none"
+document.getElementById("applia-chevron-up").style.display = "none"
+document.getElementById("ust-chevron-up").style.display = "none"
+document.getElementById("applia-search-list").style.display = "none"
+document.getElementById("ust-search-list").style.display = "none"
 
 
 /**
@@ -172,18 +171,32 @@ function searchUstensils() {
  */
 function showingredientsfilter() {
   if (document.getElementById("ingr-search-list").style.display === "none"){
-    document.getElementById("ingr-search-list").style.display = "block"
+    document.getElementById("ingr-search-list").style.display = "grid"
     document.getElementById("ingr-chevron-up").style.display = "block"
-    document.getElementById("ingr-chevron-down").style.display = "none"
 
+    document.getElementById("title-ingredient").type ="search"
+    document.getElementById("title-ingredient").placeholder ="Recherche un ingrédient"
+    document.getElementById("title-ingredient").size ="30"
+
+
+    document.getElementById("ingr-chevron-down").style.display = "none"
     document.getElementById("applia-search-list").style.display = "none"
+    document.getElementById("applia-chevron-up").style.display = "none"
+    document.getElementById("applia-chevron-down").style.display = "block"
     document.getElementById("ust-search-list").style.display = "none"
+    document.getElementById("ust-chevron-up").style.display = "none"
+    document.getElementById("ust-chevron-down").style.display = "block"
   } else {
     document.getElementById("ingr-search-list").style.display = "none"
+
+    document.getElementById("title-ingredient").type ="text"
+    document.getElementById("title-ingredient").placeholder ="Ingrédients"
+    document.getElementById("title-ingredient").size ="20"
+
     document.getElementById("ingr-chevron-down").style.display = "block"
     document.getElementById("ingr-chevron-up").style.display = "none"
 
-    // document.getElementById("title-ingredient").style.display = "block"
+    document.getElementById("title-ingredient").style.display = "block"
   }
 }
 
@@ -196,11 +209,16 @@ function showappliancefilter() {
     document.getElementById("applia-search-list").style.display = "block"
     document.getElementById("applia-chevron-up").style.display = "block"
     document.getElementById("applia-chevron-down").style.display = "none"
-    
     document.getElementById("ingr-search-list").style.display = "none"
-    document.getElementById("ust-search-list").style.display = "none"
+    document.getElementById("ingr-chevron-up").style.display = "none"
+    document.getElementById("ingr-chevron-down").style.display = "block"
 
+    document.getElementById("title-ingredient").type ="text"
+    document.getElementById("title-ingredient").placeholder ="Ingrédients"
     
+    document.getElementById("ust-search-list").style.display = "none"
+    document.getElementById("ust-chevron-up").style.display = "none"
+    document.getElementById("ust-chevron-down").style.display = "block"
   } else {
     document.getElementById("applia-search-list").style.display = "none"
     document.getElementById("applia-chevron-down").style.display = "block"
@@ -217,7 +235,16 @@ function showustensilfilter() {
     document.getElementById("ust-chevron-up").style.display = "block"
     document.getElementById("ust-chevron-down").style.display = "none"
     document.getElementById("ingr-search-list").style.display = "none"
+    document.getElementById("ingr-chevron-up").style.display = "none"
+    document.getElementById("ingr-chevron-down").style.display = "block"
+
+    document.getElementById("title-ingredient").type ="text"
+    document.getElementById("title-ingredient").placeholder ="Ingrédients"
+
     document.getElementById("applia-search-list").style.display = "none"
+    document.getElementById("applia-chevron-up").style.display = "none"
+    document.getElementById("applia-chevron-down").style.display = "block"
+
   } else {
     document.getElementById("ust-search-list").style.display = "none"
     document.getElementById("ust-chevron-down").style.display = "block"
@@ -241,3 +268,26 @@ function showustensilfilter() {
 //           return unitLng
 //   }
 // }
+
+
+//RECHERCHE SUGGESTION
+// const ingredients = [tableau de valeur à écouter];
+// const searchinput = document.getElementById('serarchinput');
+
+// searchinput.addEventListener('keyup', function(){
+//   const input = searchinput.value;
+//   const result = pesrons.fiulter(item => item.name.toLowerCase().includes(input.toLowerCase()));
+//   let suggestion = '';
+//   if (input !=''){
+//     result.forEach(resultItem =>
+//       suggestion +='
+//       <div class="suggestion">${resultItem.name}</div>
+//       '
+//       )
+//   }
+//   document.getElementById('suggestion').innerHTML = suggestion;
+// })
+
+
+
+

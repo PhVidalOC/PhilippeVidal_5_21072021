@@ -43,32 +43,38 @@
           </div>
 
           <div id="tag-area">
-            <div id="tag-ingredient" class="ingredient-tag">
-              <p class="tag">
+            <div id="tag-area-ingr" class="tag-zone">
+              <!-- <div id="tag-ingredient" class="ingredient-tag"> -->
+              <!-- <p class="tag">
                 coco<img
                   src="images/icon/circlecroix.svg"
                   alt="icone cercle avec croix"
                   class="tag__icon"
-                />
-              </p>
+                /> -->
+              <!-- </p> -->
+              <!-- </div> -->
             </div>
-            <div id="tag-appliance" class="appliance-tag">
-              <p class="tag">
-                mixer<img
-                  src="images/icon/circlecroix.svg"
-                  alt="icone cercle avec croix"
-                  class="tag__icon"
-                />
-              </p>
+            <div id="tag-area-applia" class="tag-zone">
+              <div id="tag-appliance" class="appliance-tag">
+                <p class="tag">
+                  mixer<img
+                    src="images/icon/circlecroix.svg"
+                    alt="icone cercle avec croix"
+                    class="tag__icon"
+                  />
+                </p>
+              </div>
             </div>
-            <div id="tag-ustensil" class="ustensil-tag">
-              <p class="tag">
-                couteau<img
-                  src="images/icon/circlecroix.svg"
-                  alt="icone cercle avec croix"
-                  class="tag__icon"
-                />
-              </p>
+            <div id="tag-area-ust" class="tag-zone">
+              <div id="tag-ustensil" class="ustensil-tag">
+                <p class="tag">
+                  couteau<img
+                    src="images/icon/circlecroix.svg"
+                    alt="icone cercle avec croix"
+                    class="tag__icon"
+                  />
+                </p>
+              </div>
             </div>
           </div>
 
@@ -82,7 +88,7 @@
                 <input
                   type="text"
                   placeholder="Ingrédients"
-                  id="title-ingredient"
+                  id="input-ingredient"
                   class="btn-filter btn-ingredients"
                 />
                 <div class="chevron-box">
@@ -102,6 +108,7 @@
               </div>
 
               <ul id="ingr-search-list" class="ingr-list text-search"></ul>
+              <!-- <ul id="ingr-comon-list" class="ingr-list text-search"></ul> -->
             </div>
 
             <div id="appliance" class="filter filter-appliance">
@@ -112,28 +119,30 @@
               >
                 <input
                   type="text"
-                  placeholder="Appareil"
-                  id="title-Appareils"
+                  placeholder="Appareils"
+                  id="input-appareils"
                   class="btn-filter btn-appliance"
                   name="appliance"
                 />
                 <div class="chevron-box">
-                <img
-                  src="images/icon/chevron-down.svg"
-                  alt="fleche vers le bas"
-                  class="icon chevron"
-                  id="applia-chevron-down"
-                />
-                <img
-                  src="images/icon/chevron-up.svg"
-                  alt="fleche vers le haut"
-                  class="icon chevron"
-                  id="applia-chevron-up"
-                />
+                  <img
+                    src="images/icon/chevron-down.svg"
+                    alt="fleche vers le bas"
+                    class="icon chevron"
+                    id="applia-chevron-down"
+                  />
+                  <img
+                    src="images/icon/chevron-up.svg"
+                    alt="fleche vers le haut"
+                    class="icon chevron"
+                    id="applia-chevron-up"
+                  />
                 </div>
               </div>
               <!-- <div id="applia-search-box" class ="search-box"> -->
               <ul id="applia-search-list" class="applia-list text-search"></ul>
+              <ul id="applia-comon-list" class="applia-list text-search"></ul>
+
               <!-- </div> -->
             </div>
 
@@ -164,30 +173,34 @@
             </div> -->
 
             <div id="ustensils" class="filter filter-ustensils">
-              <div id="click-ust" class="input-box ust-box" onclick="showustensilfilter()">
+              <div
+                id="click-ust"
+                class="input-box ust-box"
+                onclick="showustensilfilter()"
+              >
                 <input
                   type="text"
                   placeholder="Ustensiles"
-                  id="title-ustensils"
+                  id="input-ustensils"
                   class="btn-filter btn-ustensils"
-                  
                 />
                 <div class="chevron-box">
-                <img
-                  src="images/icon/chevron-down.svg"
-                  alt="fleche vers le bas"
-                  class="icon chevron"
-                  id="ust-chevron-down"
-                />
-                <img
-                  src="images/icon/chevron-up.svg"
-                  alt="fleche vers le haut"
-                  class="icon chevron"
-                  id="ust-chevron-up"
-                />
-              </div>
+                  <img
+                    src="images/icon/chevron-down.svg"
+                    alt="fleche vers le bas"
+                    class="icon chevron"
+                    id="ust-chevron-down"
+                  />
+                  <img
+                    src="images/icon/chevron-up.svg"
+                    alt="fleche vers le haut"
+                    class="icon chevron"
+                    id="ust-chevron-up"
+                  />
+                </div>
               </div>
               <ul id="ust-search-list" class="ust-list text-search"></ul>
+              <ul id="ust-comon-list" class="ust-list text-search"></ul>
             </div>
 
             <!-- <div id="ustensils" class="filter filter-ustensils">

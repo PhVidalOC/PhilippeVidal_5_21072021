@@ -4,10 +4,9 @@
 let tabIngr = [];
 let tabApplia = [];
 let tabUstensils = [];
-let tabTagIngr = [];
-let tabTagApplia = [];
-let tabTagUst = [];
-
+let tabTagArea = [];
+// let tabTagApplia = [];
+// let tabTagUst = [];
 
 /**
  * CONSTANTES
@@ -174,7 +173,6 @@ ustensilsArray.forEach((ustensils) => {
   containerSearchC.innerHTML += `<li>${ustensils}</li>`;
 });
 
-//FONCTION ecriture filtre et ajout TAG
 /**
  * Input texte et filtre ingrédients
  */
@@ -185,28 +183,140 @@ inputIngr.addEventListener("keyup", (e) => {
   let inputValue = "";
   ingredientsArray.forEach((element) => {
     if (element.toLowerCase().includes(ingrValue.toLowerCase())) {
-      inputValue += `<li class"input-value" onclick = "addTag(this)">${element}</li>`;
+      inputValue += `<li class"input-value" onclick = "addTagIngr(this)">${element}</li>`;
     }
-    // console.log(inputValue)
   });
   document.getElementById("ingr-search-list").innerHTML = inputValue;
+  console.log(tabTagArea)
 });
 
-function addTag(inputValue) {
-  //push et créer tableau des tags
-console.log(inputValue.innerText)
+const tagApplia = document.getElementById("tag-area-applia");
+const inputApplia = document.getElementById("input-appareils");
+inputApplia.addEventListener("keyup", (e) => {
+  const appliaValue = e.target.value;
+  let inputValue = "";
+  appliancesArray.forEach((element) => {
+    if (element.toLowerCase().includes(appliaValue.toLowerCase())) {
+      inputValue += `<li class"input-value" onclick = "addTagApplia(this)">${element}</li>`;
+    }
+  });
+  document.getElementById("applia-search-list").innerHTML = inputValue;
+    console.log(tabTagArea)
+});
+
+const tagUst = document.getElementById("tag-area-ust");
+const inputUst = document.getElementById("input-ustensils");
+inputUst.addEventListener("keyup", (e) => {
+  const ustValue = e.target.value;
+  let inputValue = "";
+  ustensilsArray.forEach((element) => {
+    if (element.toLowerCase().includes(ustValue.toLowerCase())) {
+      inputValue += `<li class"input-value" onclick = "addTagUst(this)">${element}</li>`;
+    }
+  });
+  document.getElementById("ust-search-list").innerHTML = inputValue;
+  console.log(tabTagArea)
+})
+
+/**
+ * Ajout Tag ingredients
+ * @param {*} inputValue 
+ */
+function addTagIngr(inputValue) {
   let inputTag = "";
-  inputTag += `<div id="tag-ingredient" class="ingredient-tag">
+  tabTagArea.push({
+    type: "ingredient",
+    value: inputValue
+  })
+  inputTag += `<div id="tag-ingredient" class="ingredient-tag" onclick = "removeTag(this)">
   <p class="tag">
   ${inputValue.innerText}<img
     src="images/icon/circlecroix.svg"
     alt="icone cercle avec croix"
     class="tag__icon"
-  />
-</p></>`;
+   />
+    </p></>`;
   tagIngr.innerHTML += inputTag;
+  // removeElement(tabIngr, inputTag);
+  filterRecipes()
 }
 
+
+function filterRecipes() {
+  //si TabTagArrea, (type & value, ingredients, appareile, ustensils) inclus dans recipes, 
+  //alors afficher recipes ayant tous les tags selectionnés éléments
+  console.log(tabTagArea)
+}
+
+
+function removeTag(el){
+  el.style.display = "none"
+  const tagName = el.innerText;
+  const index = tabTagArea.findIndex(tag=>{
+    return tag.value === tagName
+  })
+  if (index!==-1){
+    tabTagArea.splice(index,1)
+  }
+  filterRecipes()
+  // console.log(tabTagArea)
+}
+
+function removeElement(tab, searchElement) {
+  for(let i = 0; i < tab.length; i++){
+      if (tab[i] == searchElement) {
+          tab.splice(i,1); // splice(index_debut_suppr, nombre_element_a_suppr)
+          break;
+      }
+  }
+}
+
+/**
+ * Ajout Tag appareil
+ * @param {*} inputValue 
+ */
+function addTagApplia(inputValue) {
+  let inputTag = "";
+  tabTagArea.push({
+    type: "appliance",
+    value: inputValue
+  })
+  inputTag += `<div id="tag-appliance" class="appliance-tag" onclick = "removeTag(this)">
+  <p class="tag">
+  ${inputValue.innerText}<img
+    src="images/icon/circlecroix.svg"
+    alt="icone cercle avec croix"
+    class="tag__icon"
+   />
+    </p></>`;
+    tagApplia.innerHTML += inputTag;
+    filterRecipes()
+}
+// console.log(tabApplia)
+
+/**
+ * Ajoiut Tag ustensiles
+ * @param {*} inputValue 
+ */
+function addTagUst(inputValue) {
+  //push et créer tableau des tags
+  let inputTag = "";
+  tabTagArea.push({
+    type: "ustensil",
+    value: inputValue
+  })
+  inputTag += `<div id="tag-ustensil" class="ustensil-tag" onclick = "removeTag(this)">
+  <p class="tag">
+  ${inputValue.innerText}<img
+    src="images/icon/circlecroix.svg"
+    alt="icone cercle avec croix"
+    class="tag__icon"
+   />
+    </p></>`;
+    tagUst.innerHTML += inputTag;
+    filterRecipes()
+}
+// console.log(tabTagArea)
 /**
  * fonction pour constitution de liste d'ustensiles
  * @returns

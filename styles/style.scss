@@ -99,12 +99,14 @@ h2 {
   border-radius: 5px;
   padding: 10px;
   margin-right: 20px;
+  margin-bottom: 10px;
 }
 .ustensil-tag {
   background-color: #ed6454;
   border-radius: 5px;
   padding: 10px;
   margin-right: 20px;
+  margin-bottom: 10px;
 }
 
 .tag {
@@ -254,6 +256,7 @@ h2 {
 
 .filter-appliance {
   background-color: #68d9a4;
+  cursor: pointer;
 }
 
 .ust-box{
@@ -265,6 +268,7 @@ h2 {
 }
 .filter-ustensils {
   background-color: #ed6454;
+  cursor: pointer;
 }
 
 //RECETTES

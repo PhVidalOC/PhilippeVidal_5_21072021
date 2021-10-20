@@ -15,20 +15,36 @@ const ingredientsArray = searchIngredients(recipes);
 const appliancesArray = searchAppliances(recipes);
 const ustensilsArray = searchUstensils(recipes);
 
+// console.log(e.target.value);
+
+// document.getElementById("search-element").addEventListener("input", (e) => {
+//    recipes.foreach(recipe) => {
+//     if (recipe.name.inlcuse(e.target.value)) {
+//       result.push(recipe);
+//     }
+//   }
+// });
+
+  //  recipes.foreach(recipe) => {
+  //  if recipe.name.inlcuse(e.target.value)
+  //  result.push.(recipe)
+  //  input présent dans: name(string), description(string), ingredients() ?
+
 /**
  * GENERATION DES CARTES DE RECETTES
  */
 displayRecipes(recipes);
 
-function displayRecipes(recipesList) {
+function displayRecipes(recipesArray) {
   const container = document.getElementById("recipes-list");
-  for (let i = 0; i < recipes.length; i++) {
-    const card = `<div id="${recipes[i].id}" class="recipe-block">
+  container.innerHTML = "";
+  for (let i = 0; i < recipesArray.length; i++) {
+    const card = `<div id="${recipesArray[i].id}" class="recipe-block">
             <div class="recipe-block__img"></div>
             <div class="recipe">
               <div class="recipe__titleTime">
                 <h2 class="recipe__titleTime__title name">
-                  ${recipes[i].name}
+                  ${recipesArray[i].name}
                 </h2>
                 <h2 class="recipe__titleTime__time">
                   <img
@@ -36,22 +52,22 @@ function displayRecipes(recipesList) {
                     alt="icone temps"
                     class="icon recipe__titleTime__time--icon"
                   />
-                  ${recipes[i].time} min
+                  ${recipesArray[i].time} min
                 </h2>
               </div>
               <div class="ingredients-description">
                 <div class="Ingredients">
                   <ul class="ingredients-list">
-                    ${getIngredients(recipes[i].ingredients)}
+                    ${getIngredients(recipesArray[i].ingredients)}
                     
                   </ul>
                 </div>
                 <div class="description">
                   <p class="description__text">
                     ${
-                      recipes[i].description.length < 300
-                        ? recipes[i].description
-                        : recipes[i].description.substring(0, 70) + "..."
+                      recipesArray[i].description.length < 350
+                        ? recipesArray[i].description
+                        : recipesArray[i].description.substring(0, 70) + "..."
                     }
                   </p>
                 </div>
@@ -59,6 +75,7 @@ function displayRecipes(recipesList) {
             </div>
           </div>`;
     container.innerHTML += card;
+    // console.log(container)
   }
 }
 
@@ -110,7 +127,7 @@ function scriptUnit(unitLng) {
 const containerSearch = document.getElementById("ingr-search-list");
 // const ingredientsArray = searchIngredients(recipes);
 ingredientsArray.forEach((ingredient) => {
-  containerSearch.innerHTML += `<li>${ingredient}</li>`;
+  containerSearch.innerHTML += `<li onclick = "addTagIngr(this)">${ingredient}</li>`;
 });
 
 /**
@@ -142,7 +159,7 @@ function searchIngredients(ingredientsSearchList) {
 const containerSearchB = document.getElementById("applia-search-list");
 // const appliancesArray = searchAppliances(recipes);
 appliancesArray.forEach((appliance) => {
-  containerSearchB.innerHTML += `<li>${appliance}</li>`;
+  containerSearchB.innerHTML += `<li onclick = "addTagApplia(this)">${appliance}</li>`;
 });
 
 /**
@@ -170,7 +187,7 @@ function searchAppliances() {
 const containerSearchC = document.getElementById("ust-search-list");
 // const ustensilsArray = searchUstensils(recipes);
 ustensilsArray.forEach((ustensils) => {
-  containerSearchC.innerHTML += `<li>${ustensils}</li>`;
+  containerSearchC.innerHTML += `<li onclick = "addTagUst(this)">${ustensils}</li>`;
 });
 
 /**
@@ -187,7 +204,7 @@ inputIngr.addEventListener("keyup", (e) => {
     }
   });
   document.getElementById("ingr-search-list").innerHTML = inputValue;
-  console.log(tabTagArea)
+  // console.log(tabTagArea)
 });
 
 const tagApplia = document.getElementById("tag-area-applia");
@@ -201,7 +218,7 @@ inputApplia.addEventListener("keyup", (e) => {
     }
   });
   document.getElementById("applia-search-list").innerHTML = inputValue;
-    console.log(tabTagArea)
+  // console.log(tabTagArea)
 });
 
 const tagUst = document.getElementById("tag-area-ust");
@@ -215,19 +232,26 @@ inputUst.addEventListener("keyup", (e) => {
     }
   });
   document.getElementById("ust-search-list").innerHTML = inputValue;
-  console.log(tabTagArea)
-})
+  // console.log(tabTagArea)
+});
 
 /**
  * Ajout Tag ingredients
- * @param {*} inputValue 
+ * @param {*} inputValue
  */
 function addTagIngr(inputValue) {
   let inputTag = "";
+  let tagName = inputValue.innerText;
+
+  // const indexRecipe = resultRecipes.findIndex((r) => (r).id === recipe.id);
+  // if (tag.type === "ingredient") {
+  //   if (ingredient.includes(tag.value.toLowerCase())) {
+  //     if (indexRecipe === -1){
+
   tabTagArea.push({
     type: "ingredient",
-    value: inputValue
-  })
+    value: tagName,
+  });
   inputTag += `<div id="tag-ingredient" class="ingredient-tag" onclick = "removeTag(this)">
   <p class="tag">
   ${inputValue.innerText}<img
@@ -235,52 +259,113 @@ function addTagIngr(inputValue) {
     alt="icone cercle avec croix"
     class="tag__icon"
    />
-    </p></>`;
+    </p></div>`;
   tagIngr.innerHTML += inputTag;
-  // removeElement(tabIngr, inputTag);
-  filterRecipes()
+  // tagIngr.splice(tagName);
+
+  filterRecipes();
+  console.log(tabTagArea);
 }
+console.log(tabTagArea);
+
+// function filterRecipes() {
+//recipes.forEAch(recipes[i]){
+//if TabTagArrea.value (ingredients, appareil, ustensils)
+//est dans recipes,
+//alors afficher recipe ayant tous les value de tags selectionnés
+// console.log(tabTagArea)
+
+// recipe.ingredients.forEach((ingredient) => {
+// }
+
+// const ustensil = recipe.ustensils.map((u) => u.toLowerCase());
+// const oneAppliance = recipe.appliance;
+// const name = recipe.name;
+// const indexRecipe = resultRecipes.findIndex((r) => (r).id === recipe.id);
+
 
 
 function filterRecipes() {
-  //si TabTagArrea, (type & value, ingredients, appareile, ustensils) inclus dans recipes, 
-  //alors afficher recipes ayant tous les tags selectionnés éléments
-  console.log(tabTagArea)
-}
+  let resultRecipes = [];
+  if (tabTagArea.length === 0) {
+    resultRecipes = [...recipes];
+  } else
+    recipes.forEach((recipe) => {
+      const ingredient = recipe.ingredients.map((i) =>
+        i.ingredient.toLowerCase()
+      );
+      const ustensil = recipe.ustensils.map((u) => u.toLowerCase());
+      const oneAppliance = recipe.appliance;
+      // const name = recipe.name;
+      const indexRecipe = resultRecipes.findIndex((r) => (r).id === recipe.id);
+      // console.log(oneAppliance);
+      tabTagArea.forEach((tag) => {
+        // console.log(tag)
+        if (tag.type === "ingredient") {
+          if (ingredient.includes(tag.value.toLowerCase())) {
+            if (indexRecipe === -1){
+              // Reduce, filter, set
+              resultRecipes.push(recipe);
+          }
+        }
+        } else if (tag.type === "ustensils") {
+          if (ustensil.includes(tag.value.toLowerCase())) {
+            if (indexRecipe === -1) {
+            resultRecipes.push(recipe);
+          }
+        }
+        } else if (tag.type === "appliance") {
+          // console.log(oneAppliance)
+          // console.log(tag.value)
+          if (oneAppliance.toLowerCase() === tag.value.toLowerCase()) { 
+            if (indexRecipe === -1) {
+              resultRecipes.push(recipe);
+          }
+        }
+          // console.log(resultRecipes.reduce(reducer))
+        }
+        // console.log(tabTagArea);
+        // console.log(typeof recipe.appliance);
+      });
+    });
+  displayRecipes(resultRecipes);
 
-
-function removeTag(el){
-  el.style.display = "none"
-  const tagName = el.innerText;
-  const index = tabTagArea.findIndex(tag=>{
-    return tag.value === tagName
-  })
-  if (index!==-1){
-    tabTagArea.splice(index,1)
-  }
-  filterRecipes()
-  // console.log(tabTagArea)
-}
-
-function removeElement(tab, searchElement) {
-  for(let i = 0; i < tab.length; i++){
-      if (tab[i] == searchElement) {
-          tab.splice(i,1); // splice(index_debut_suppr, nombre_element_a_suppr)
-          break;
-      }
-  }
+  // displayRecipes(resultRecipes);
 }
 
 /**
+ *
+ * @param {*} el
+ */
+function removeTag(el) {
+  // console.log(tabTagArea);
+  el.style.display = "none";
+  const tagName = el.innerText.trim();
+  // console.log(tagName);
+  const index = tabTagArea.findIndex((tag) => {
+    return tag.value === tagName;
+  });
+  // console.log(tagName);
+  // console.log(index);
+  if (index !== -1) {
+    tabTagArea.splice(index, 1);
+  }
+  // console.log(tabTagArea);
+  filterRecipes();
+}
+
+/**
+ *
  * Ajout Tag appareil
- * @param {*} inputValue 
+ * @param {*} inputValue
  */
 function addTagApplia(inputValue) {
   let inputTag = "";
+  let tagName = inputValue.innerText;
   tabTagArea.push({
     type: "appliance",
-    value: inputValue
-  })
+    value: tagName,
+  });
   inputTag += `<div id="tag-appliance" class="appliance-tag" onclick = "removeTag(this)">
   <p class="tag">
   ${inputValue.innerText}<img
@@ -288,35 +373,37 @@ function addTagApplia(inputValue) {
     alt="icone cercle avec croix"
     class="tag__icon"
    />
-    </p></>`;
-    tagApplia.innerHTML += inputTag;
-    filterRecipes()
+    </p></div>`;
+  tagApplia.innerHTML += inputTag;
+  filterRecipes();
+  // console.log(tabTagArea);
 }
-// console.log(tabApplia)
 
 /**
- * Ajoiut Tag ustensiles
- * @param {*} inputValue 
+ * Ajout Tag ustensiles
+ * @param {*} inputValue
  */
 function addTagUst(inputValue) {
   //push et créer tableau des tags
   let inputTag = "";
+  let tagName = inputValue.innerText;
   tabTagArea.push({
-    type: "ustensil",
-    value: inputValue
-  })
+    type: "ustensils",
+    value: tagName,
+  });
   inputTag += `<div id="tag-ustensil" class="ustensil-tag" onclick = "removeTag(this)">
-  <p class="tag">
+  <p class="tag tag-ingr">
   ${inputValue.innerText}<img
     src="images/icon/circlecroix.svg"
     alt="icone cercle avec croix"
     class="tag__icon"
    />
-    </p></>`;
-    tagUst.innerHTML += inputTag;
-    filterRecipes()
+    </p></div>`;
+  tagUst.innerHTML += inputTag;
+  filterRecipes();
+  // console.log(tabTagArea);
 }
-// console.log(tabTagArea)
+
 /**
  * fonction pour constitution de liste d'ustensiles
  * @returns

@@ -313,7 +313,6 @@ h2 {
 
 .description {
   width: 175px;
-  height: 100px;
   font-size: 12px;
   font-family: "roboro", sans-serif;
   padding: 0;
@@ -324,6 +323,5 @@ h2 {
 }
 .description__text {
   width: 175px;
-  height: 109px;
   margin: 0;
 }/*# sourceMappingURL=style.css.map */

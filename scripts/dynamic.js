@@ -5,36 +5,42 @@ let tabIngr = [];
 let tabApplia = [];
 let tabUstensils = [];
 let tabTagArea = [];
-// let tabTagApplia = [];
-// let tabTagUst = [];
 
 /**
  * CONSTANTES
  */
 const ingredientsArray = searchIngredients(recipes);
+const containerSearch = document.getElementById("ingr-search-list");
 const appliancesArray = searchAppliances(recipes);
 const ustensilsArray = searchUstensils(recipes);
 
-// console.log(e.target.value);
-
-// document.getElementById("search-element").addEventListener("input", (e) => {
-//    recipes.foreach(recipe) => {
-//     if (recipe.name.inlcuse(e.target.value)) {
-//       result.push(recipe);
-//     }
-//   }
-// });
-
-  //  recipes.foreach(recipe) => {
-  //  if recipe.name.inlcuse(e.target.value)
-  //  result.push.(recipe)
-  //  input présent dans: name(string), description(string), ingredients() ?
-
-/**
- * GENERATION DES CARTES DE RECETTES
- */
 displayRecipes(recipes);
 
+//RECHERCHE DANS LA SEARCH BAR
+document.getElementById("search-element").addEventListener("input", (e) => {
+  const searchValue = e.target.value.toLowerCase();
+  if (searchValue.length > 2) {
+    const searchRecipes = recipes.filter((recipe) => {
+      return (
+        recipe.name.toLowerCase().includes(searchValue) ||
+        recipe.ingredients.some((i) =>
+          i.ingredient.toLowerCase().includes(searchValue)
+        ) ||
+        recipe.appliance.toLowerCase().includes(searchValue) ||
+        recipe.ustensils.some((u) => u.toLowerCase().includes(searchValue))
+      );
+    });
+    displayRecipes(searchRecipes);
+    console.log(searchRecipes);
+  } else {
+    displayRecipes(recipe);
+  }
+  console.log(ingredientsArray);
+});
+
+// /**
+//  * GENERATION DES CARTES DE RECETTES
+//  */
 function displayRecipes(recipesArray) {
   const container = document.getElementById("recipes-list");
   container.innerHTML = "";
@@ -124,7 +130,7 @@ function scriptUnit(unitLng) {
 /**
  * LISTE INGREDIENTS
  */
-const containerSearch = document.getElementById("ingr-search-list");
+// const containerSearch = document.getElementById("ingr-search-list");
 // const ingredientsArray = searchIngredients(recipes);
 ingredientsArray.forEach((ingredient) => {
   containerSearch.innerHTML += `<li onclick = "addTagIngr(this)">${ingredient}</li>`;
@@ -196,7 +202,7 @@ ustensilsArray.forEach((ustensils) => {
 const tagIngr = document.getElementById("tag-area-ingr");
 const inputIngr = document.getElementById("input-ingredient");
 inputIngr.addEventListener("keyup", (e) => {
-  const ingrValue = e.target.value;
+  const ingrValue = e.target.value.toLowerCase();
   let inputValue = "";
   ingredientsArray.forEach((element) => {
     if (element.toLowerCase().includes(ingrValue.toLowerCase())) {
@@ -204,8 +210,8 @@ inputIngr.addEventListener("keyup", (e) => {
     }
   });
   document.getElementById("ingr-search-list").innerHTML = inputValue;
-  // console.log(tabTagArea)
 });
+// console.log(tabTagArea)
 
 const tagApplia = document.getElementById("tag-area-applia");
 const inputApplia = document.getElementById("input-appareils");
@@ -232,6 +238,7 @@ inputUst.addEventListener("keyup", (e) => {
     }
   });
   document.getElementById("ust-search-list").innerHTML = inputValue;
+
   // console.log(tabTagArea)
 });
 
@@ -243,15 +250,11 @@ function addTagIngr(inputValue) {
   let inputTag = "";
   let tagName = inputValue.innerText;
 
-  // const indexRecipe = resultRecipes.findIndex((r) => (r).id === recipe.id);
-  // if (tag.type === "ingredient") {
-  //   if (ingredient.includes(tag.value.toLowerCase())) {
-  //     if (indexRecipe === -1){
-
   tabTagArea.push({
     type: "ingredient",
     value: tagName,
   });
+
   inputTag += `<div id="tag-ingredient" class="ingredient-tag" onclick = "removeTag(this)">
   <p class="tag">
   ${inputValue.innerText}<img
@@ -261,12 +264,14 @@ function addTagIngr(inputValue) {
    />
     </p></div>`;
   tagIngr.innerHTML += inputTag;
-  // tagIngr.splice(tagName);
 
   filterRecipes();
-  console.log(tabTagArea);
+
+  // console.log(tabTagArea);
+  // console.log(tabIngr);
 }
-console.log(tabTagArea);
+
+// console.log(tabTagArea);
 
 // function filterRecipes() {
 //recipes.forEAch(recipes[i]){
@@ -283,8 +288,6 @@ console.log(tabTagArea);
 // const name = recipe.name;
 // const indexRecipe = resultRecipes.findIndex((r) => (r).id === recipe.id);
 
-
-
 function filterRecipes() {
   let resultRecipes = [];
   if (tabTagArea.length === 0) {
@@ -297,38 +300,42 @@ function filterRecipes() {
       const ustensil = recipe.ustensils.map((u) => u.toLowerCase());
       const oneAppliance = recipe.appliance;
       // const name = recipe.name;
-      const indexRecipe = resultRecipes.findIndex((r) => (r).id === recipe.id);
+      const indexRecipe = resultRecipes.findIndex((r) => r.id === recipe.id);
       // console.log(oneAppliance);
       tabTagArea.forEach((tag) => {
         // console.log(tag)
         if (tag.type === "ingredient") {
           if (ingredient.includes(tag.value.toLowerCase())) {
-            if (indexRecipe === -1){
+            if (indexRecipe === -1) {
               // Reduce, filter, set
               resultRecipes.push(recipe);
+            }
           }
-        }
+          // console.log(resultRecipes)
         } else if (tag.type === "ustensils") {
           if (ustensil.includes(tag.value.toLowerCase())) {
             if (indexRecipe === -1) {
-            resultRecipes.push(recipe);
+              resultRecipes.push(recipe);
+            }
           }
-        }
         } else if (tag.type === "appliance") {
           // console.log(oneAppliance)
           // console.log(tag.value)
-          if (oneAppliance.toLowerCase() === tag.value.toLowerCase()) { 
+          if (oneAppliance.toLowerCase() === tag.value.toLowerCase()) {
             if (indexRecipe === -1) {
               resultRecipes.push(recipe);
+            }
           }
-        }
           // console.log(resultRecipes.reduce(reducer))
         }
-        // console.log(tabTagArea);
         // console.log(typeof recipe.appliance);
       });
+      // console.log(tabTagArea)
     });
+
   displayRecipes(resultRecipes);
+  // console.log(resultRecipes);
+  // console.log(tabTagArea);
 
   // displayRecipes(resultRecipes);
 }
